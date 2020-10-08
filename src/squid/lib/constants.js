@@ -97,6 +97,21 @@ export const supportedPools = [
     tokenSymbol: 'SQUID',
     icon: '🦑',
   },
+  {
+    pid: 1,
+    lpAddresses: {
+      1: '0xa478c2975ab1ea89e8196811f51a7b7ade33eb11',
+      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316',
+    },
+    tokenAddresses: {
+      1: '0x6b175474e89094c44da98b954eedeac495271d0f',
+      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D',
+    },
+    name: 'DAI DOG',
+    symbol: 'DAI-ETH UNI-V2 LP',
+    tokenSymbol: 'DAI',
+    icon: '🐕',
+  },
   /*
   {
     pid: 0,
@@ -125,19 +140,6 @@ export const supportedPools = [
     symbol: 'USDC-ETH UNI-V2 LP',
     tokenSymbol: 'USDC',
     icon: '🐍',
-  },
-  {
-    pid: 2,
-    lpAddresses: {
-      1: '0xa478c2975ab1ea89e8196811f51a7b7ade33eb11',
-    },
-    tokenAddresses: {
-      1: '0x6b175474e89094c44da98b954eedeac495271d0f',
-    },
-    name: 'DAI DOG',
-    symbol: 'DAI-ETH UNI-V2 LP',
-    tokenSymbol: 'DAI',
-    icon: '🐕',
   },
   {
     pid: 8,
