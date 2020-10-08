@@ -17,7 +17,7 @@ const StakeXSquid: React.FC = () => {
   const {
     tokenAddress,
   } = {
-    tokenAddress: contractAddresses.xSquid[1],
+    tokenAddress: contractAddresses.xSquid[3],
   }
 
   const [totalSupply, setTotalSupply] = useState<BigNumber>()

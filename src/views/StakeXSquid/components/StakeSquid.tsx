@@ -27,7 +27,7 @@ const StakeSquid: React.FC<StakeProps> = ({}) => {
   const allowance = useAllowanceStaking()
   const {onApprove} = useApproveStaking()
 
-  const tokenBalance = useTokenBalance(contractAddresses.squid[1])
+  const tokenBalance = useTokenBalance(contractAddresses.squid[3])
 
   const {onEnter} = useEnter()
   const {onLeave} = useLeave()
