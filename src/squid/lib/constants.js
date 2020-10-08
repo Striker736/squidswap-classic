@@ -76,20 +76,23 @@ SLP Address on mainnet for reference
 */
 
 
-export const supportedPools = [/*
+export const supportedPools = [
   {
-    pid: 12,
+    pid: 1,
     lpAddresses: {
       1: '0xce84867c3c02b05dc570d0135103d3fb9cc19433',
+      3: '0x26a8554b890b246446a4a3ef9968f816455af439',
     },
     tokenAddresses: {
       1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
+      3: '0xaf24f3886e85ffc5049df24fc9f7b957d650d778'
     },
     name: 'Squid Party!',
     symbol: 'SQUID-ETH UNI-V2 LP',
     tokenSymbol: 'SQUID',
     icon: '🦑',
   },
+  /*
   {
     pid: 0,
     lpAddresses: {

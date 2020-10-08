@@ -142,6 +142,9 @@ export const getXSquidSupply = async (squid) => {
 }
 
 export const stake = async (squidChefContract, pid, amount, account) => {
+  console.log(pid, 
+    new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+    console.log(squidChefContract)
   return squidChefContract.methods
     .deposit(
       pid,
