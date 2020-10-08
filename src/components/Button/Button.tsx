@@ -36,6 +36,8 @@ const Button: React.FC<ButtonProps> = ({
       buttonColor = color.primary.main
   }
 
+  buttonColor = 'white'
+
   let boxShadow: string
   let buttonSize: number
   let buttonPadding: number
@@ -63,6 +65,7 @@ const Button: React.FC<ButtonProps> = ({
       buttonSize = 56
       fontSize = 16
   }
+  boxShadow = `8px 8px 12px rgba(0, 0, 0, 0.3);`
 
   const ButtonChild = useMemo(() => {
     if (to) {
@@ -101,7 +104,7 @@ interface StyledButtonProps {
 
 const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
-  background-color: ${props => props.theme.color.grey[200]};
+  background-color: #e86f55;
   border: 0;
   border-radius: 12px;
   box-shadow: ${props => props.boxShadow};
@@ -118,7 +121,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   pointer-events: ${props => !props.disabled ? undefined : 'none'};
   width: 100%;
   &:hover {
-    background-color: ${props => props.theme.color.grey[100]};
+    background-color: #e86f55D0;
   }
 `
 

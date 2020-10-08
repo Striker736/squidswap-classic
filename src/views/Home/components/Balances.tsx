@@ -16,6 +16,7 @@ import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
 import { getSushiAddress, getSushiSupply } from '../../../sushi/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
+import Img_Squid from '../../../assets/img/squid1.png'
 
 const PendingRewards: React.FC = () => {
   const [start, setStart] = useState(0)
@@ -91,10 +92,10 @@ const Balances: React.FC = () => {
         <CardContent>
           <StyledBalances>
             <StyledBalance>
-              <SushiIcon />
+              <img src={Img_Squid} alt="" style={{width: '60px', height: '60px'}}/>
               <Spacer />
               <div style={{ flex: 1 }}>
-                <Label text="Your SUSHI Balance" />
+                <Label text="Your SQUID Balance" color='#e86f55'/>
                 <Value
                   value={!!account ? getBalanceNumber(sushiBalance) : 'Locked'}
                 />
@@ -105,7 +106,7 @@ const Balances: React.FC = () => {
         <Footnote>
           Pending harvest
           <FootnoteValue>
-            <PendingRewards /> SUSHI
+            <PendingRewards /> SQUID
           </FootnoteValue>
         </Footnote>
       </Card>
@@ -113,14 +114,14 @@ const Balances: React.FC = () => {
 
       <Card>
         <CardContent>
-          <Label text="Total SUSHI Supply" />
+          <Label text="Total SQUID Supply" color='#e86f55'/>
           <Value
             value={totalSupply ? getBalanceNumber(totalSupply) : 'Locked'}
           />
         </CardContent>
         <Footnote>
           New rewards per block
-          <FootnoteValue>100 SUSHI</FootnoteValue>
+          <FootnoteValue>1000 SQUID</FootnoteValue>
         </Footnote>
       </Card>
     </StyledWrapper>

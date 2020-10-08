@@ -40,7 +40,7 @@ const DisclaimerModal: React.FC<DisclaimerModal> = ({
               of Omakase Bar!
           </p>
           <p> Omakase Bar will be the home of our new frontend, and provides
-              an interface for all interactions with the SushiSwap protocol.
+              an interface for all interactions with the SquidSwap protocol.
           </p>
           <p> Development will be on going, and sushiswapclassic will still
               exist in the interim as we work to get Omakase Bar completely

@@ -2,15 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 interface LabelProps {
-  text?: string
+  text?: string,
+  color?: any,
 }
 
-const Label: React.FC<LabelProps> = ({ text }) => (
-  <StyledLabel>{text}</StyledLabel>
+const Label: React.FC<LabelProps> = ({ text, color }) => (
+  <StyledLabel color={color}>{text}</StyledLabel>
 )
 
 const StyledLabel = styled.div`
-  color: ${(props) => props.theme.color.grey[400]};
+  color: ${(props) => props.color?props.color:props.theme.color.grey[400]};
 `
 
 export default Label
