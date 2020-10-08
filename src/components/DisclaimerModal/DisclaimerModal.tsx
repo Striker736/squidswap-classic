@@ -42,7 +42,7 @@ const DisclaimerModal: React.FC<DisclaimerModal> = ({
           <p> Omakase Bar will be the home of our new frontend, and provides
               an interface for all interactions with the SquidSwap protocol.
           </p>
-          <p> Development will be on going, and sushiswapclassic will still
+          <p> Development will be on going, and squidswapclassic will still
               exist in the interim as we work to get Omakase Bar completely
               polished.
           </p>
@@ -51,7 +51,7 @@ const DisclaimerModal: React.FC<DisclaimerModal> = ({
     } else {
       return (
         <div>
-          <StyledLink target="_blank" href="https://sushiswap.fi">
+          <StyledLink target="_blank" href="https://squidswap.fi">
             Click here to access Omakase Bar.
           </StyledLink>
         </div>

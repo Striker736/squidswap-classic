@@ -3,26 +3,26 @@ import styled from 'styled-components'
 import {useWallet} from 'use-wallet'
 import {provider} from 'web3-core'
 import Spacer from '../../components/Spacer'
-import useSushi from '../../hooks/useSushi'
+import useSquid from '../../hooks/useSquid'
 import {getContract} from '../../utils/erc20'
-import UnstakeXSushi from './components/UnstakeXSushi'
-import StakeSushi from "./components/StakeSushi";
+import UnstakeXSquid from './components/UnstakeXSquid'
+import StakeSquid from "./components/StakeSquid";
 
-import {contractAddresses} from '../../sushi/lib/constants'
-import {getXSushiSupply} from "../../sushi/utils";
+import {contractAddresses} from '../../squid/lib/constants'
+import {getXSquidSupply} from "../../squid/utils";
 import BigNumber from "bignumber.js";
 import {getBalanceNumber} from "../../utils/formatBalance";
 
-const StakeXSushi: React.FC = () => {
+const StakeXSquid: React.FC = () => {
   const {
     tokenAddress,
   } = {
-    tokenAddress: contractAddresses.xSushi[1],
+    tokenAddress: contractAddresses.xSquid[1],
   }
 
   const [totalSupply, setTotalSupply] = useState<BigNumber>()
 
-  const sushi = useSushi()
+  const squid = useSquid()
   const {ethereum} = useWallet()
 
   useEffect(() => {
@@ -31,13 +31,13 @@ const StakeXSushi: React.FC = () => {
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const supply = await getXSushiSupply(sushi)
+      const supply = await getXSquidSupply(squid)
       setTotalSupply(supply)
     }
-    if (sushi) {
+    if (squid) {
       fetchTotalSupply()
     }
-  }, [sushi, setTotalSupply])
+  }, [squid, setTotalSupply])
 
 
 
@@ -51,13 +51,13 @@ const StakeXSushi: React.FC = () => {
       <StyledFarm>
         <StyledCardsWrapper>
           <StyledCardWrapper>
-            <UnstakeXSushi
+            <UnstakeXSquid
               lpContract={lpContract}
             />
           </StyledCardWrapper>
           <Spacer/>
           <StyledCardWrapper>
-            <StakeSushi
+            <StakeSquid
             />
           </StyledCardWrapper>
         </StyledCardsWrapper>
@@ -115,4 +115,4 @@ const StyledInfo = styled.h3`
   text-align: center;
 `
 
-export default StakeXSushi
+export default StakeXSquid

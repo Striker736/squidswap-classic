@@ -23,33 +23,37 @@ export const INTEGERS = {
 }
 
 export const addressMap = {
-  uniswapFactory: '0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95',
-  uniswapFactoryV2: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
+  uniswapFactory: '0xDdca0E44e69e6f06939fF7c39B71A23D930D4FF1', //'0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95',
+  uniswapFactoryV2: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f', // '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
   YFI: '0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e',
   YCRV: '0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8',
   UNIAmpl: '0xc5be99a02c6857f9eac67bbce58df5572498f40c',
-  WETH: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-  UNIRouter: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
+  WETH: '0x0a180a76e4466bf68a7f86fb029bed3cccfaaac5', // '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+  UNIRouter: '0x232229F91643674Ae7A796f26d6246681F6311f3', // '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
   LINK: '0x514910771AF9Ca656af840dff83E8264EcF986CA',
   MKR: '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2',
   SNX: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
   COMP: '0xc00e94Cb662C3520282E6f5717214004A7f26888',
   LEND: '0x80fB784B7eD66730e8b1DBd9820aFD29931aab03',
-  SUSHIYCRV: '0x2C7a51A357d5739C5C74Bf3C96816849d2c9F726',
+  SUSHIYCRV: '0x583F44e01C2daf25D527980d4b19A05d3B43659c', //'0x2C7a51A357d5739C5C74Bf3C96816849d2c9F726',
 }
 
 export const contractAddresses = {
-  sushi: {
+  squid: {
     1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
+    3: '0xaf24f3886e85ffc5049df24fc9f7b957d650d778'
   },
-  masterChef: {
+  squidChef: {
     1: '0xc2edad668740f1aa35e4d8f227fb8e17dca888cd',
+    3: '0x653ad48395a5b268219F2D040B8B4eA04e04b50a'
   },
   weth: {
     1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    3: '0x0a180a76e4466bf68a7f86fb029bed3cccfaaac5'
   },
-  xSushi: {
-    1: '0x8798249c2e607446efb7ad49ec89dd1865ff4272'
+  xSquid: {
+    1: '0x8798249c2e607446efb7ad49ec89dd1865ff4272',
+    3: '0x1D456A3C71e969987F4463Da63f527f04AD83297'
   }
 }
 
@@ -68,11 +72,11 @@ SLP Address on mainnet for reference
 9  BAND 0xf421c3f2e695c2d4c0765379ccace8ade4a480d9
 10 AMPL 0xc5be99a02c6857f9eac67bbce58df5572498f40c
 11 YFI  0x2fdbadf3c4d5a8666bc06645b8358ab803996e28
-12 SUSHI 0xce84867c3c02b05dc570d0135103d3fb9cc19433
+12 SQUID 0xce84867c3c02b05dc570d0135103d3fb9cc19433
 */
 
 
-export const supportedPools = [
+export const supportedPools = [/*
   {
     pid: 12,
     lpAddresses: {
@@ -152,5 +156,5 @@ export const supportedPools = [
     symbol: 'UNI-ETH UNI-V2 LP',
     tokenSymbol: 'UNI',
     icon: '🦄',
-  },
+  },*/
 ]

@@ -3,27 +3,27 @@ import { useCallback, useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
-import { getStaked, getMasterChefContract } from '../sushi/utils'
-import useSushi from './useSushi'
+import { getStaked, getSquidChefContract } from '../squid/utils'
+import useSquid from './useSquid'
 import useBlock from './useBlock'
 
 const useStakedBalance = (pid: number) => {
   const [balance, setBalance] = useState(new BigNumber(0))
   const { account }: { account: string } = useWallet()
-  const sushi = useSushi()
-  const masterChefContract = getMasterChefContract(sushi)
+  const squid = useSquid()
+  const squidChefContract = getSquidChefContract(squid)
   const block = useBlock()
 
   const fetchBalance = useCallback(async () => {
-    const balance = await getStaked(masterChefContract, pid, account)
+    const balance = await getStaked(squidChefContract, pid, account)
     setBalance(new BigNumber(balance))
-  }, [account, pid, sushi])
+  }, [account, pid, squid])
 
   useEffect(() => {
-    if (account && sushi) {
+    if (account && squid) {
       fetchBalance()
     }
-  }, [account, pid, setBalance, block, sushi])
+  }, [account, pid, setBalance, block, squid])
 
   return balance
 }

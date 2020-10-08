@@ -1,24 +1,24 @@
 import {useCallback} from 'react'
 
-import useSushi from './useSushi'
+import useSquid from './useSquid'
 import {useWallet} from 'use-wallet'
 
-import {enter, getXSushiStakingContract} from '../sushi/utils'
+import {enter, getXSquidStakingContract} from '../squid/utils'
 
 const useEnter = () => {
   const {account} = useWallet()
-  const sushi = useSushi()
+  const squid = useSquid()
 
   const handle = useCallback(
     async (amount: string) => {
       const txHash = await enter(
-        getXSushiStakingContract(sushi),
+        getXSquidStakingContract(squid),
         amount,
         account,
       )
       console.log(txHash)
     },
-    [account, sushi],
+    [account, squid],
   )
 
   return {onEnter: handle}

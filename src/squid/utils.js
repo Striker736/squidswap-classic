@@ -13,30 +13,30 @@ const GAS_LIMIT = {
   },
 }
 
-export const getMasterChefAddress = (sushi) => {
-  return sushi && sushi.masterChefAddress
+export const getSquidChefAddress = (squid) => {
+  return squid && squid.squidChefAddress
 }
-export const getSushiAddress = (sushi) => {
-  return sushi && sushi.sushiAddress
+export const getSquidAddress = (squid) => {
+  return squid && squid.squidAddress
 }
-export const getWethContract = (sushi) => {
-  return sushi && sushi.contracts && sushi.contracts.weth
-}
-
-export const getMasterChefContract = (sushi) => {
-  return sushi && sushi.contracts && sushi.contracts.masterChef
-}
-export const getSushiContract = (sushi) => {
-  return sushi && sushi.contracts && sushi.contracts.sushi
+export const getWethContract = (squid) => {
+  return squid && squid.contracts && squid.contracts.weth
 }
 
-export const getXSushiStakingContract = (sushi) => {
-  return sushi && sushi.contracts && sushi.contracts.xSushiStaking
+export const getSquidChefContract = (squid) => {
+  return squid && squid.contracts && squid.contracts.squidChef
+}
+export const getSquidContract = (squid) => {
+  return squid && squid.contracts && squid.contracts.squid
 }
 
-export const getFarms = (sushi) => {
-  return sushi
-    ? sushi.contracts.pools.map(
+export const getXSquidStakingContract = (squid) => {
+  return squid && squid.contracts && squid.contracts.xSquidStaking
+}
+
+export const getFarms = (squid) => {
+  return squid
+    ? squid.contracts.pools.map(
         ({
           pid,
           name,
@@ -58,40 +58,41 @@ export const getFarms = (sushi) => {
           tokenSymbol,
           tokenContract,
           earnToken: 'squid',
-          earnTokenAddress: sushi.contracts.sushi.options.address,
+          earnTokenAddress: squid.contracts.squid.options.address,
           icon,
         }),
       )
     : []
 }
 
-export const getPoolWeight = async (masterChefContract, pid) => {
-  const { allocPoint } = await masterChefContract.methods.poolInfo(pid).call()
-  const totalAllocPoint = await masterChefContract.methods
+export const getPoolWeight = async (squidChefContract, pid) => {
+  const { allocPoint } = await squidChefContract.methods.poolInfo(pid).call()
+  const totalAllocPoint = await squidChefContract.methods
     .totalAllocPoint()
     .call()
   return new BigNumber(allocPoint).div(new BigNumber(totalAllocPoint))
 }
 
-export const getEarned = async (masterChefContract, pid, account) => {
-  return masterChefContract.methods.pendingSushi(pid, account).call()
+export const getEarned = async (squidChefContract, pid, account) => {
+  return squidChefContract.methods.pendingSquid(pid, account).call()
 }
 
 export const getTotalLPWethValue = async (
-  masterChefContract,
+  squidChefContract,
   wethContract,
   lpContract,
   tokenContract,
   pid,
 ) => {
+  console.log(lpContract.options.address)
   // Get balance of the token address
   const tokenAmountWholeLP = await tokenContract.methods
     .balanceOf(lpContract.options.address)
     .call()
   const tokenDecimals = await tokenContract.methods.decimals().call()
-  // Get the share of lpContract that masterChefContract owns
+  // Get the share of lpContract that squidChefContract owns
   const balance = await lpContract.methods
-    .balanceOf(masterChefContract.options.address)
+    .balanceOf(squidChefContract.options.address)
     .call()
   // Convert that into the portion of total lpContract = p1
   const totalSupply = await lpContract.methods.totalSupply().call()
@@ -116,13 +117,13 @@ export const getTotalLPWethValue = async (
     wethAmount,
     totalWethValue: totalLpWethValue.div(new BigNumber(10).pow(18)),
     tokenPriceInWeth: wethAmount.div(tokenAmount),
-    poolWeight: await getPoolWeight(masterChefContract, pid),
+    poolWeight: await getPoolWeight(squidChefContract, pid),
   }
 }
 
-export const approve = async (lpContract, masterChefContract, account) => {
+export const approve = async (lpContract, squidChefContract, account) => {
   return lpContract.methods
-    .approve(masterChefContract.options.address, ethers.constants.MaxUint256)
+    .approve(squidChefContract.options.address, ethers.constants.MaxUint256)
     .send({ from: account })
 }
 
@@ -132,16 +133,16 @@ export const approveAddress = async (lpContract, address, account) => {
       .send({ from: account })
 }
 
-export const getSushiSupply = async (sushi) => {
-  return new BigNumber(await sushi.contracts.sushi.methods.totalSupply().call())
+export const getSquidSupply = async (squid) => {
+  return new BigNumber(await squid.contracts.squid.methods.totalSupply().call())
 }
 
-export const getXSushiSupply = async (sushi) => {
-  return new BigNumber(await sushi.contracts.xSushiStaking.methods.totalSupply().call())
+export const getXSquidSupply = async (squid) => {
+  return new BigNumber(await squid.contracts.xSquidStaking.methods.totalSupply().call())
 }
 
-export const stake = async (masterChefContract, pid, amount, account) => {
-  return masterChefContract.methods
+export const stake = async (squidChefContract, pid, amount, account) => {
+  return squidChefContract.methods
     .deposit(
       pid,
       new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
@@ -153,8 +154,8 @@ export const stake = async (masterChefContract, pid, amount, account) => {
     })
 }
 
-export const unstake = async (masterChefContract, pid, amount, account) => {
-  return masterChefContract.methods
+export const unstake = async (squidChefContract, pid, amount, account) => {
+  return squidChefContract.methods
     .withdraw(
       pid,
       new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
@@ -165,8 +166,8 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
       return tx.transactionHash
     })
 }
-export const harvest = async (masterChefContract, pid, account) => {
-  return masterChefContract.methods
+export const harvest = async (squidChefContract, pid, account) => {
+  return squidChefContract.methods
     .deposit(pid, '0')
     .send({ from: account })
     .on('transactionHash', (tx) => {
@@ -175,9 +176,9 @@ export const harvest = async (masterChefContract, pid, account) => {
     })
 }
 
-export const getStaked = async (masterChefContract, pid, account) => {
+export const getStaked = async (squidChefContract, pid, account) => {
   try {
-    const { amount } = await masterChefContract.methods
+    const { amount } = await squidChefContract.methods
       .userInfo(pid, account)
       .call()
     return new BigNumber(amount)
@@ -186,10 +187,10 @@ export const getStaked = async (masterChefContract, pid, account) => {
   }
 }
 
-export const redeem = async (masterChefContract, account) => {
+export const redeem = async (squidChefContract, account) => {
   let now = new Date().getTime() / 1000
   if (now >= 1597172400) {
-    return masterChefContract.methods
+    return squidChefContract.methods
       .exit()
       .send({ from: account })
       .on('transactionHash', (tx) => {

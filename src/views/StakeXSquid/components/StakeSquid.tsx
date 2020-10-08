@@ -11,7 +11,7 @@ import useModal from '../../../hooks/useModal'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import {getBalanceNumber} from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
-import {contractAddresses} from '../../../sushi/lib/constants'
+import {contractAddresses} from '../../../squid/lib/constants'
 import useEnter from "../../../hooks/useEnter";
 import useLeave from "../../../hooks/useLeave";
 import useAllowanceStaking from "../../../hooks/useAllowanceStaking";
@@ -20,14 +20,14 @@ import useApproveStaking from "../../../hooks/useApproveStaking";
 interface StakeProps {
 }
 
-const StakeSushi: React.FC<StakeProps> = ({}) => {
+const StakeSquid: React.FC<StakeProps> = ({}) => {
   const tokenName = "SQUID"
   const [requestedApproval, setRequestedApproval] = useState(false)
 
   const allowance = useAllowanceStaking()
   const {onApprove} = useApproveStaking()
 
-  const tokenBalance = useTokenBalance(contractAddresses.sushi[1])
+  const tokenBalance = useTokenBalance(contractAddresses.squid[1])
 
   const {onEnter} = useEnter()
   const {onLeave} = useLeave()
@@ -111,4 +111,4 @@ const StyledCardContentInner = styled.div`
   justify-content: space-between;
 `
 
-export default StakeSushi
+export default StakeSquid

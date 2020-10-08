@@ -18,9 +18,9 @@ interface HarvestProps {
   lpContract: Contract
 }
 
-const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {
+const UnstakeXSquid: React.FC<HarvestProps> = ({lpContract}) => {
 
-  const xSushiBalance = useTokenBalance(lpContract.options.address)
+  const xSquidBalance = useTokenBalance(lpContract.options.address)
   const [pendingTx, setPendingTx] = useState(false)
 
   const {onLeave} = useLeave()
@@ -29,7 +29,7 @@ const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {
 
   const [onPresentLeave] = useModal(
     <WithdrawModal
-      max={xSushiBalance}
+      max={xSquidBalance}
       onConfirm={onLeave}
       tokenName={tokenName}
     />,
@@ -41,12 +41,12 @@ const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {
         <StyledCardContentInner>
           <StyledCardHeader>
             <CardIcon>🦑</CardIcon>
-            <Value value={getBalanceNumber(xSushiBalance)}/>
+            <Value value={getBalanceNumber(xSquidBalance)}/>
             <Label text="xSQUID (SquidBar) Available"/>
           </StyledCardHeader>
           <StyledCardActions>
             <Button
-              disabled={!xSushiBalance.toNumber() || pendingTx}
+              disabled={!xSquidBalance.toNumber() || pendingTx}
               text={pendingTx ? 'Converting to SQUID' : 'Convert to SQUID'}
               onClick={async () => {
                 setPendingTx(true)
@@ -86,4 +86,4 @@ const StyledCardContentInner = styled.div`
   justify-content: space-between;
 `
 
-export default UnstakeXSushi
+export default UnstakeXSquid

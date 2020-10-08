@@ -6,12 +6,12 @@ import { useWallet } from 'use-wallet'
 import { Contract } from 'web3-eth-contract'
 
 import {
-  getMasterChefContract,
+  getSquidChefContract,
   getWethContract,
   getFarms,
   getTotalLPWethValue,
-} from '../sushi/utils'
-import useSushi from './useSushi'
+} from '../squid/utils'
+import useSquid from './useSquid'
 import useBlock from './useBlock'
 
 export interface StakedValue {
@@ -25,10 +25,10 @@ export interface StakedValue {
 const useAllStakedValue = () => {
   const [balances, setBalance] = useState([] as Array<StakedValue>)
   const { account }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useSushi()
-  const farms = getFarms(sushi)
-  const masterChefContract = getMasterChefContract(sushi)
-  const wethContact = getWethContract(sushi)
+  const squid = useSquid()
+  const farms = getFarms(squid)
+  const squidChefContract = getSquidChefContract(squid)
+  const wethContact = getWethContract(squid)
   const block = useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
@@ -44,7 +44,7 @@ const useAllStakedValue = () => {
           tokenContract: Contract
         }) =>
           getTotalLPWethValue(
-            masterChefContract,
+            squidChefContract,
             wethContact,
             lpContract,
             tokenContract,
@@ -54,13 +54,13 @@ const useAllStakedValue = () => {
     )
 
     setBalance(balances)
-  }, [account, masterChefContract, sushi])
+  }, [account, squidChefContract, squid])
 
   useEffect(() => {
-    if (account && masterChefContract && sushi) {
+    if (account && squidChefContract && squid) {
       fetchAllStakedValue()
     }
-  }, [account, block, masterChefContract, setBalance, sushi])
+  }, [account, block, squidChefContract, setBalance, squid])
 
   return balances
 }

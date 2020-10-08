@@ -8,13 +8,13 @@ import CardContent from '../../../components/CardContent'
 import Label from '../../../components/Label'
 import Spacer from '../../../components/Spacer'
 import Value from '../../../components/Value'
-import SushiIcon from '../../../components/SushiIcon'
+import SquidIcon from '../../../components/SquidIcon'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress, getSushiSupply } from '../../../sushi/utils'
+import useSquid from '../../../hooks/useSquid'
+import { getSquidAddress, getSquidSupply } from '../../../squid/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import Img_Squid from '../../../assets/img/squid1.png'
 
@@ -72,19 +72,19 @@ const PendingRewards: React.FC = () => {
 
 const Balances: React.FC = () => {
   const [totalSupply, setTotalSupply] = useState<BigNumber>()
-  const sushi = useSushi()
-  const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+  const squid = useSquid()
+  const squidBalance = useTokenBalance(getSquidAddress(squid))
   const { account, ethereum }: { account: any; ethereum: any } = useWallet()
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const supply = await getSushiSupply(sushi)
+      const supply = await getSquidSupply(squid)
       setTotalSupply(supply)
     }
-    if (sushi) {
+    if (squid) {
       fetchTotalSupply()
     }
-  }, [sushi, setTotalSupply])
+  }, [squid, setTotalSupply])
 
   return (
     <StyledWrapper>
@@ -97,7 +97,7 @@ const Balances: React.FC = () => {
               <div style={{ flex: 1 }}>
                 <Label text="Your SQUID Balance" color='#e86f55'/>
                 <Value
-                  value={!!account ? getBalanceNumber(sushiBalance) : 'Locked'}
+                  value={!!account ? getBalanceNumber(squidBalance) : 'Locked'}
                 />
               </div>
             </StyledBalance>

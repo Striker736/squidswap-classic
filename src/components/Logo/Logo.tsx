@@ -8,7 +8,7 @@ const Logo: React.FC = () => {
     <StyledLogo to="/">
       <img src={chef} height="32" style={{ marginTop: -4 }} />
       <StyledText>
-        SquidSwap <MasterChefText>SquidChef</MasterChefText>
+        SquidSwap <SquidChefText>SquidChef</SquidChefText>
       </StyledText>
     </StyledLogo>
   )
@@ -37,7 +37,7 @@ const StyledText = styled.span`
   }
 `
 
-const MasterChefText = styled.span`
+const SquidChefText = styled.span`
   font-family: 'Kaushan Script', sans-serif;
 `
 

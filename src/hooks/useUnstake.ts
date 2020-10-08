@@ -1,21 +1,21 @@
 import { useCallback } from 'react'
 
-import useSushi from './useSushi'
+import useSquid from './useSquid'
 import { useWallet } from 'use-wallet'
 
-import { unstake, getMasterChefContract } from '../sushi/utils'
+import { unstake, getSquidChefContract } from '../squid/utils'
 
 const useUnstake = (pid: number) => {
   const { account } = useWallet()
-  const sushi = useSushi()
-  const masterChefContract = getMasterChefContract(sushi)
+  const squid = useSquid()
+  const squidChefContract = getSquidChefContract(squid)
 
   const handleUnstake = useCallback(
     async (amount: string) => {
-      const txHash = await unstake(masterChefContract, pid, amount, account)
+      const txHash = await unstake(squidChefContract, pid, amount, account)
       console.log(txHash)
     },
-    [account, pid, sushi],
+    [account, pid, squid],
   )
 
   return { onUnstake: handleUnstake }
