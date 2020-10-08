@@ -83,7 +83,7 @@ const Farm: React.FC = () => {
         <Spacer size="md" />
         <StyledLink
           target="__blank"
-          href={`https://squidswap.vision/pair/${lpTokenAddress}`}
+          href={`https://ropsten.etherscan.io/address/${lpTokenAddress}`}
         >
           {lpTokenName} Info
         </StyledLink>
