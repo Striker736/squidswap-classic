@@ -41,11 +41,11 @@ export const addressMap = {
 export const contractAddresses = {
   squid: {
     1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
-    3: '0xaf24f3886e85ffc5049df24fc9f7b957d650d778'
+    3: '0xC8E503572837e3957DD01A85B626EA48F6799F95'
   },
   squidChef: {
     1: '0xc2edad668740f1aa35e4d8f227fb8e17dca888cd',
-    3: '0x653ad48395a5b268219F2D040B8B4eA04e04b50a'
+    3: '0x4dB5bdbCe76a5cc369C7E118F3bF97FcA9158219'
   },
   weth: {
     1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
@@ -53,10 +53,15 @@ export const contractAddresses = {
   },
   xSquid: {
     1: '0x8798249c2e607446efb7ad49ec89dd1865ff4272',
-    3: '0x1D456A3C71e969987F4463Da63f527f04AD83297'
+    3: '0x2C9D997A8cE5dA398dBCF43e70916cC2A6252Cc8'
   }
 }
 
+// V2 Ropsten
+// SquidToken : 0xC8E503572837e3957DD01A85B626EA48F6799F95
+// SquidChef: 0x4dB5bdbCe76a5cc369C7E118F3bF97FcA9158219
+// SquidRestaurant: 0xC9BB690D4f799212ACd5c9BC33f4f61A0229735b
+// SquidBar: 0x2C9D997A8cE5dA398dBCF43e70916cC2A6252Cc8
 /*
 SLP Address on mainnet for reference
 ==========================================
@@ -78,14 +83,14 @@ SLP Address on mainnet for reference
 
 export const supportedPools = [
   {
-    pid: 1,
+    pid: 0,
     lpAddresses: {
       1: '0xce84867c3c02b05dc570d0135103d3fb9cc19433',
-      3: '0x26a8554b890b246446a4a3ef9968f816455af439',
+      3: '0x66557a66bfe6de2c366521611e7c7647e4e717b9',
     },
     tokenAddresses: {
       1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
-      3: '0xaf24f3886e85ffc5049df24fc9f7b957d650d778'
+      3: '0xC8E503572837e3957DD01A85B626EA48F6799F95'
     },
     name: 'Squid Party!',
     symbol: 'SQUID-ETH UNI-V2 LP',
