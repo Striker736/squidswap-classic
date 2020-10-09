@@ -111,16 +111,15 @@ export const supportedPools = [
     tokenSymbol: 'DAI',
     icon: '🐕',
   },
-  /*
   {
     pid: 0,
     lpAddresses: {
       1: '0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852',
-      3: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
+      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316'
     },
     tokenAddresses: {
       1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
-      3: '0x6ee856ae55b6e1a249f04cd3b947141bc146273c'
+      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D'
     },
     name: 'Tether Turkey',
     symbol: 'USDT-ETH UNI-V2 LP',
@@ -131,9 +130,11 @@ export const supportedPools = [
     pid: 1,
     lpAddresses: {
       1: '0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc',
+      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316'
     },
     tokenAddresses: {
       1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D'
     },
     name: 'Circle Snake',
     symbol: 'USDC-ETH UNI-V2 LP',
@@ -141,12 +142,14 @@ export const supportedPools = [
     icon: '🐍',
   },
   {
-    pid: 8,
+    pid: 1,
     lpAddresses: {
       1: '0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974',
+      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316'
     },
     tokenAddresses: {
       1: '0x514910771af9ca656af840dff83e8264ecf986ca',
+      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D'
     },
     name: 'Link Lion',
     symbol: 'LINK-ETH UNI-V2 LP',
@@ -154,16 +157,18 @@ export const supportedPools = [
     icon: '🦁',
   },
   {
-    pid: 9,
+    pid: 1,
     lpAddresses: {
       1: '0xd3d2e2692501a5c9ca623199d38826e513033a17',
+      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316'
     },
     tokenAddresses: {
       1: '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984',
+      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D'
     },
     name: 'Uni Unicorn',
     symbol: 'UNI-ETH UNI-V2 LP',
     tokenSymbol: 'UNI',
     icon: '🦄',
-  },*/
+  },
 ]
