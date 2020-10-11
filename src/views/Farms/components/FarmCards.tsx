@@ -143,7 +143,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             <Spacer />
             {farm.tokenSymbol === 'SQUID' &&
               <Button
-                text="Comming soon"
+                text="Coming soon"
               >
                 {!poolActive && (
                   <Countdown
