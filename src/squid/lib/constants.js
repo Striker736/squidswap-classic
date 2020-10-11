@@ -40,22 +40,25 @@ export const addressMap = {
 
 export const contractAddresses = {
   squid: {
-    1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
-    3: '0x253F5A244aa8eDEcf5F0D5e4d2AAe9A1a48F31d8'
+    1: '0xE90b13eCA5Bb4fa0e5Ed3e54A85220058aeA80B5',
   },
   squidChef: {
-    1: '0xc2edad668740f1aa35e4d8f227fb8e17dca888cd',
-    3: '0x25a3D71079F2DC26ea561166269ED5098847D441'
+    1: '0x1D456A3C71e969987F4463Da63f527f04AD83297',
   },
   weth: {
     1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
     3: '0x0a180a76e4466bf68a7f86fb029bed3cccfaaac5'
   },
   xSquid: {
-    1: '0x8798249c2e607446efb7ad49ec89dd1865ff4272',
-    3: '0x5006EcDfF7e0b31F5fbea0069398CAd5bD83FEAF'
+    1: '0x48B6244378929133E9507Ad0D93B99Cdbb68C987',
   }
 }
+// MainNet:
+// SquidToken : 0xE90b13eCA5Bb4fa0e5Ed3e54A85220058aeA80B5
+// SquidChef: 0x1D456A3C71e969987F4463Da63f527f04AD83297
+// SquidBar: 0x48B6244378929133E9507Ad0D93B99Cdbb68C987
+// SquidLock: 0xa0989f65247Ea4554fd88568D1aEd3e566e8D211
+
 //100
 // V2 Ropsten
 // SquidToken : 0x253F5A244aa8eDEcf5F0D5e4d2AAe9A1a48F31d8
@@ -81,30 +84,28 @@ SLP Address on mainnet for reference
 
 
 export const supportedPools = [
-  {
+  /*{
     pid: 0,
     lpAddresses: {
       1: '0xce84867c3c02b05dc570d0135103d3fb9cc19433',
       3: '0x20aFA75332dEdDa6140d0A48Bb6570721170d666',
     },
     tokenAddresses: {
-      1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
+      1: '0xE90b13eCA5Bb4fa0e5Ed3e54A85220058aeA80B5',
       3: '0x253F5A244aa8eDEcf5F0D5e4d2AAe9A1a48F31d8'
     },
     name: 'Squid Party!',
     symbol: 'SQUID-ETH UNI-V2 LP',
     tokenSymbol: 'SQUID',
     icon: '🦑',
-  },
+  },*/
   {
-    pid: 1,
+    pid: 0,
     lpAddresses: {
       1: '0xa478c2975ab1ea89e8196811f51a7b7ade33eb11',
-      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316',
     },
     tokenAddresses: {
       1: '0x6b175474e89094c44da98b954eedeac495271d0f',
-      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D',
     },
     name: 'DAI DOG',
     symbol: 'DAI-ETH UNI-V2 LP',
@@ -112,14 +113,12 @@ export const supportedPools = [
     icon: '🐕',
   },
   {
-    pid: 0,
+    pid: 1,
     lpAddresses: {
       1: '0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852',
-      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316'
     },
     tokenAddresses: {
       1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
-      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D'
     },
     name: 'Tether Turkey',
     symbol: 'USDT-ETH UNI-V2 LP',
@@ -127,14 +126,12 @@ export const supportedPools = [
     icon: '🦃',
   },
   {
-    pid: 1,
+    pid: 2,
     lpAddresses: {
       1: '0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc',
-      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316'
     },
     tokenAddresses: {
       1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D'
     },
     name: 'Circle Snake',
     symbol: 'USDC-ETH UNI-V2 LP',
@@ -142,14 +139,12 @@ export const supportedPools = [
     icon: '🐍',
   },
   {
-    pid: 1,
+    pid: 3,
     lpAddresses: {
       1: '0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974',
-      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316'
     },
     tokenAddresses: {
       1: '0x514910771af9ca656af840dff83e8264ecf986ca',
-      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D'
     },
     name: 'Link Lion',
     symbol: 'LINK-ETH UNI-V2 LP',
@@ -157,14 +152,12 @@ export const supportedPools = [
     icon: '🦁',
   },
   {
-    pid: 1,
+    pid: 4,
     lpAddresses: {
       1: '0xd3d2e2692501a5c9ca623199d38826e513033a17',
-      3: '0x1c5DEe94a34D795f9EEeF830B68B80e44868d316'
     },
     tokenAddresses: {
       1: '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984',
-      3: '0xaD6D458402F60fD3Bd25163575031ACDce07538D'
     },
     name: 'Uni Unicorn',
     symbol: 'UNI-ETH UNI-V2 LP',
