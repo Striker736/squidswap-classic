@@ -25,7 +25,7 @@ const Staking: React.FC = () => {
               <PageHeader
                 icon={<img src={chef} height="120"/>}
                 subtitle="Welcome to the Squid Bar, stake Squid to earn Squid."
-                title="Irasshaimase!"
+                title="Select Your Favorite Dishes!"
               />
             </Route>
             <StakeXSquid/>

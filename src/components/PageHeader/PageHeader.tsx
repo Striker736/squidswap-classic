@@ -14,7 +14,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ icon, subtitle, title }) => {
     <Container size="sm">
       <StyledPageHeader>
         <StyledIcon>{icon}</StyledIcon>
-        <StyledTitle>{title}</StyledTitle>
+        <StyledTitle>Select Your Favorite Dishes</StyledTitle>
         <StyledSubtitle>{subtitle}</StyledSubtitle>
       </StyledPageHeader>
     </Container>
