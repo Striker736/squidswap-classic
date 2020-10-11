@@ -141,18 +141,32 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
             </StyledDetails>
             <Spacer />
-            <Button
-              disabled={!poolActive}
-              text={poolActive ? 'Select' : undefined}
-              to={`/farms/${farm.id}`}
-            >
-              {!poolActive && (
-                <Countdown
-                  date={new Date(startTime * 1000)}
-                  renderer={renderer}
-                />
-              )}
-            </Button>
+            {farm.tokenSymbol === 'SQUID' &&
+              <Button
+                text="Comming soon"
+              >
+                {!poolActive && (
+                  <Countdown
+                    date={new Date(startTime * 1000)}
+                    renderer={renderer}
+                  />
+                )}
+              </Button>
+            }
+            {farm.tokenSymbol !== 'SQUID' &&
+              <Button
+                disabled={!poolActive}
+                text={poolActive ? 'Select' : undefined}
+                to={`/farms/${farm.id}`}
+              >
+                {!poolActive && (
+                  <Countdown
+                    date={new Date(startTime * 1000)}
+                    renderer={renderer}
+                  />
+                )}
+              </Button>
+            }
             <StyledInsight>
               <span>APY</span>
               <span>

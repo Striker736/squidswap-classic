@@ -84,7 +84,7 @@ SLP Address on mainnet for reference
 
 
 export const supportedPools = [
-  /*{
+  {
     pid: 0,
     lpAddresses: {
       1: '0xce84867c3c02b05dc570d0135103d3fb9cc19433',
@@ -98,7 +98,7 @@ export const supportedPools = [
     symbol: 'SQUID-ETH UNI-V2 LP',
     tokenSymbol: 'SQUID',
     icon: '🦑',
-  },*/
+  },
   {
     pid: 0,
     lpAddresses: {
